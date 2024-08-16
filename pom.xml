@@ -19,6 +19,9 @@
 		<module>pruebas-service-step-verifier</module>
 		<module>contra-presion</module>
 		<module>transformacion-convinacion-flujos</module>
+		<module>manejo-exceptions</module>
+		<module>ejemplo-thymeleaf-reactivo</module>
+		<module>hot-cold-publisher</module>
 	</modules>
 	<name>web-flux-project</name>
 	<description>Demo project for Spring Boot</description>

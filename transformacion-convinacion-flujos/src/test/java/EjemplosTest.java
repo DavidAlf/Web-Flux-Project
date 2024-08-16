@@ -60,4 +60,28 @@ public class EjemplosTest {
                 .expectNextCount(6).verifyComplete();
 
     }
+    
+
+    @Test
+    public void testConvinarFlujosConConcat() {
+        Flux<String> bebidas = Flux.just("Gatorade", "Sporade", "Agua de panela");
+        Flux<String> comidas = Flux.just("Pasta", "Frijoles", "lentejas");
+
+        Flux<String> concatFlux = Flux.concat(bebidas, comidas).log();
+
+        StepVerifier.create(concatFlux).expectNext("Gatorade").expectNext("Sporade").expectNext("Agua de panela")
+                .expectNext("Pasta").expectNext("Frijoles").expectNext("lentejas").verifyComplete();
+    }
+
+    @Test
+    public void testConvinarFlujosConZip() {
+        Flux<String> bebidas = Flux.just("Gatorade", "Sporade", "Agua de panela");
+        Flux<String> comidas = Flux.just("Pasta", "Frijoles", "lentejas");
+
+        Flux<String> zipFlux = Flux.zip(bebidas, comidas,(f1,f2)->{
+            return f1.concat(" ").concat(f2);
+        }).log();
+
+        StepVerifier.create(zipFlux).expectNext("Gatorade Pasta","Sporade Frijoles","Agua de panela lentejas").verifyComplete();
+    }
 }
