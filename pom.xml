@@ -22,6 +22,8 @@
 		<module>manejo-exceptions</module>
 		<module>ejemplo-thymeleaf-reactivo</module>
 		<module>hot-cold-publisher</module>
+		<module>api-reactive-webflux</module>
+		<module>api-mongo-db</module>
 	</modules>
 	<name>web-flux-project</name>
 	<description>Demo project for Spring Boot</description>
@@ -88,6 +90,16 @@
 			<artifactId>junit</artifactId>
 			<version>4.13.2</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
 	</dependencies>
 
